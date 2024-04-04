@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delayed Page Load</title>
+  <script>
+    function delayPageLoad() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('sleep')) {
+        const sleepTime = parseInt(urlParams.get('sleep'));
+        const startTime = Date.now();
+        while (Date.now() - startTime < sleepTime) { /* Sleep */ }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', delayPageLoad);
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>
